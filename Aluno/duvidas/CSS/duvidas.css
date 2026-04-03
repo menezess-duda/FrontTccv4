@@ -1,0 +1,494 @@
+:root {
+    --primary-color: #BB86FC; 
+    --secondary-color: #a21fa2; 
+    --accent-color: #FF3D00; 
+    --bg-dark: #121212; 
+    --bg-card: #1E1E1E; 
+    --text-light: #E0E0E0; 
+    --text-muted: #9E9E9E; 
+    --border-color: #bb86fc33; 
+    --shadow-color: rgba(0, 0, 0, 0.5);
+    --font-futuristic: 'Orbitron', sans-serif;
+    --font-main: 'Poppins', sans-serif;
+
+    /* Cores de Status */
+    --status-answered: #00E676; 
+    --status-pending: #FFC107; 
+}
+
+/* Reset Básico e Tipografia */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    line-height: 1.6;
+    color: var(--text-light);
+    background-color: var(--bg-dark);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+
+.user-dashboard {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+}
+
+
+.sidebar {
+  width: 250px;
+  background-color: #0D0D0D;
+  padding: 20px 0;
+  
+  position: fixed;   /* 🔥 ISSO AQUI resolve */
+  top: 0;
+  left: 0;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  box-shadow: 5px 0 20px var(--shadow-color);
+  z-index: 1000;
+}
+
+.dashboard-content {
+  margin-left: 250px;
+}
+
+.sidebar.collapsed {
+    width: 80px;
+}
+
+.sidebar.collapsed .logo-text,
+.sidebar.collapsed .nav-item span,
+.sidebar.collapsed .sidebar-footer span {
+    display: none;
+}
+
+.sidebar.collapsed .nav-item {
+    justify-content: center;
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    margin-bottom: 30px;
+    height: 40px;
+}
+
+.logo-text {
+    font-family: var(--font-futuristic);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-left: 10px;
+    transition: opacity 0.3s ease;
+}
+
+.menu-icon {
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--secondary-color);
+    transition: color 0.3s ease;
+}
+
+.menu-icon:hover {
+    color: var(--primary-color);
+}
+
+.sidebar-nav {
+  flex: 1;
+  display: flex;
+  align-items: center;     /* 🔥 CENTRALIZA NO MEIO */
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    text-decoration: none;
+    color: var(--text-light);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-item i {
+    font-size: 1.2rem;
+    margin-right: 15px;
+    color: var(--secondary-color);
+}
+
+.nav-item:hover {
+    background-color: #1A1A1A;
+    color: var(--primary-color);
+}
+
+.nav-item.active {
+    background-color: var(--primary-color);
+    color: var(--bg-dark);
+    border-left: 5px solid var(--secondary-color);
+}
+
+.nav-item.active i {
+    color: var(--bg-dark);
+}
+
+.sidebar-footer {
+    padding: 20px 0;
+    border-top: 1px solid var(--border-color);
+}
+
+/* Conteúdo Principal (Dashboard) */
+.dashboard-content {
+    flex-grow: 1;
+    padding: 30px;
+    overflow-y: auto;
+}
+
+.page-title {
+    font-family: var(--font-futuristic);
+    font-size: 2.5rem;
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+/* Layout de Duas Colunas */
+.duvidas-grid {
+    display: grid;
+    grid-template-columns: 3fr 1fr; /* 75% para o principal, 25% para o lateral */
+    gap: 20px;
+    min-height: calc(100vh - 100px); /* Ajuste para ocupar o espaço restante */
+}
+
+.main-column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.sidebar-column {
+    /* Apenas para o card de dúvidas populares */
+}
+
+/* Estilo Base para Cards (Dark Futurista) - REPLICADO */
+.data-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 15px var(--shadow-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.data-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(187, 134, 252, 0.15); /* Glow roxo */
+}
+
+.card-title {
+    font-family: var(--font-futuristic);
+    font-size: 1.1rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.card-title i {
+    margin-right: 8px;
+    color: var(--secondary-color);
+}
+
+/* Formulário de Dúvidas */
+.doubt-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.input-group {
+    position: relative;
+}
+
+.input-group input, .input-group textarea {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #252525; /* Fundo do input mais escuro */
+    color: var(--text-light);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    resize: none;
+}
+
+.input-group input:focus, .input-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 10px var(--primary-color); /* Glow no foco */
+}
+
+.input-group label {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    color: var(--text-muted);
+    pointer-events: none;
+    transition: all 0.3s ease;
+    background-color: transparent;
+    padding: 0 5px;
+}
+
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label,
+.input-group textarea:focus + label,
+.input-group textarea:not(:placeholder-shown) + label {
+    top: -10px;
+    left: 10px;
+    font-size: 0.8rem;
+    color: var(--secondary-color);
+    background-color: var(--bg-card);
+    padding: 0 5px;
+    border-radius: 5px;
+}
+
+/* Botão Primário (Enviar Dúvida) */
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--bg-dark);
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px var(--primary-color); /* Glow inicial */
+    align-self: flex-start;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-primary:hover {
+    background-color: var(--secondary-color);
+    box-shadow: 0 0 20px var(--secondary-color); /* Glow mais forte no hover */
+    transform: translateY(-2px);
+}
+
+/* Minhas Dúvidas */
+.doubt-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.doubt-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #252525;
+    border-left: 5px solid var(--primary-color);
+    transition: background-color 0.3s ease;
+}
+
+.doubt-item:hover {
+    background-color: #2A2A2A;
+}
+
+.doubt-info {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.doubt-icon {
+    font-size: 1.2rem;
+    margin-right: 15px;
+    color: var(--secondary-color);
+}
+
+.doubt-title-text {
+    font-weight: 500;
+    color: var(--text-light);
+}
+
+.doubt-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.doubt-status {
+    font-size: 0.9rem;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: 600;
+}
+
+.doubt-item.answered .doubt-status {
+    background-color: rgba(0, 230, 118, 0.2);
+    color: var(--status-answered);
+    border: 1px solid var(--status-answered);
+}
+
+.doubt-item.pending .doubt-status {
+    background-color: rgba(255, 193, 7, 0.2);
+    color: var(--status-pending);
+    border: 1px solid var(--status-pending);
+}
+
+.btn-view-answer {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.btn-view-answer:hover {
+    background-color: var(--primary-color);
+    color: var(--bg-dark);
+    box-shadow: 0 0 10px var(--primary-color);
+}
+
+.btn-view-answer.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* Dúvidas Populares (Sidebar) */
+.popular-doubts-card {
+    height: 100%; /* Ocupa toda a altura da coluna lateral */
+}
+
+.popular-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.popular-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #252525;
+    border-left: 3px solid var(--secondary-color);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+}
+
+.popular-item:hover {
+    background-color: #2A2A2A;
+    transform: translateX(5px);
+}
+
+.popular-icon {
+    font-size: 1rem;
+    margin-right: 10px;
+    color: var(--primary-color);
+}
+
+.popular-text {
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+    .duvidas-grid {
+        grid-template-columns: 1fr; /* Coluna única em telas menores */
+    }
+
+    .sidebar-column {
+        order: 1; /* Coloca as dúvidas populares acima do formulário */
+    }
+
+    .main-column {
+        order: 2;
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 100vh;
+        z-index: 1000;
+        transform: translateX(-250px);
+    }
+
+    .sidebar.active {
+        transform: translateX(0);
+    }
+
+    .dashboard-content {
+        padding: 20px;
+        margin-left: 0;
+    }
+
+    .menu-icon {
+        display: block;
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 1001;
+        background-color: var(--bg-dark);
+        padding: 5px;
+        border-radius: 5px;
+    }
+
+    .sidebar-header {
+        justify-content: flex-end;
+    }
+
+    .sidebar.collapsed {
+        width: 250px;
+    }
+
+    .sidebar.collapsed .logo-text,
+    .sidebar.collapsed .nav-item span,
+    .sidebar.collapsed .sidebar-footer span {
+        display: inline;
+    }
+}
+
+/* Animações e Efeitos Futuristas (para JS) */
+.glitch-text {
+    animation: glitch 1s linear infinite;
+}
+
+@keyframes glitch {
+    2%, 64% {
+        transform: translate(2px, 0) skew(0deg);
+    }
+    4%, 60% {
+        transform: translate(-2px, 0) skew(0deg);
+    }
+    62% {
+        transform: translate(0, 0) skew(5deg);
+    }
+}
+
+/* Efeito de brilho neon para elementos interativos */
+.nav-item:hover, .popular-item:hover, .btn-primary:hover {
+    filter: drop-shadow(0 0 5px var(--primary-color));
+}

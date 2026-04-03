@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EstudeX | Desempenho</title>
+    <link rel="stylesheet" href="css/style-desempenho.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../CSS/desempenho.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="../CSS/themes.css">
+    
+</head>
+<body>
+
+    <section class="user-dashboard">
+        <!-- SIDEBAR (Menu Lateral) -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <i class="fas fa-bars menu-icon" id="menu-toggle"></i>
+                <span class="logo-text">EstudeX</span>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="../../../Home/HTML/home-Estudex.html" class="nav-item"><i class="fas fa-home"></i> <span>Home</span></a></li>
+                    <li><a href="../../perfil/HTML/perfil-Estudex.html" class="nav-item"><i class="fas fa-user"></i> <span>Perfil</span></a></li>
+                    <li><a href="../../duvidas/HTML/duvidas-Estudex.html" class="nav-item"><i class="fas fa-question-circle"></i> <span>Dúvidas</span></a></li>
+                    <li><a href="../../atividade/HTML/atividades-Estudex.html" class="nav-item"><i class="fas fa-tasks"></i> <span>Atividades</span></a></li>
+                    <li><a href="../../desempenho/HTML/desempenho-Estudex.html" class="nav-item"><i class="fas fa-chart-line"></i> <span>Desempenho</span></a></li>
+                    <li><a href="../../enem/HTML/enem.html" class="nav-item"><i class="fas fa-book"></i> <span>Enem</span></a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- CONTEÚDO PRINCIPAL -->
+        <main class="dashboard-content">
+            <h1 class="page-title"><i class="fas fa-chart-line"></i> Desempenho</h1>
+
+            <!-- CARD DE DESEMPENHO GERAL -->
+            <div class="data-card performance-card">
+                <h2 class="card-title"><i class="fas fa-star"></i> Desempenho Geral</h2>
+                <div class="performance-container">
+                    <div class="performance-circle">
+                        <svg viewBox="0 0 100 100" class="performance-svg">
+                            <circle cx="50" cy="50" r="45" class="performance-bg"></circle>
+                            <circle cx="50" cy="50" r="45" class="performance-fill" style="--performance: 82;"></circle>
+                        </svg>
+                        <div class="performance-text">
+                            <span class="performance-value">82%</span>
+                            <span class="performance-label">Nota Média</span>
+                        </div>
+                    </div>
+                    <div class="performance-info">
+                        <div class="info-item">
+                            <span class="info-label">Classificação</span>
+                            <span class="info-value advanced">Avançado</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Evolução Mensal</span>
+                            <span class="info-value growth"><i class="fas fa-arrow-up"></i> +12%</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Posição no Ranking</span>
+                            <span class="info-value rank">#12 de 150</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GRÁFICOS DE EVOLUÇÃO -->
+            <div class="charts-grid">
+                <!-- GRÁFICO DE LINHA: Progressão Semanal -->
+                <div class="data-card chart-card">
+                    <h2 class="card-title"><i class="fas fa-chart-line"></i> Progressão Semanal</h2>
+                    <canvas id="lineChart" class="chart-canvas"></canvas>
+                </div>
+
+                <!-- GRÁFICO DE BARRAS: Desempenho por Matéria -->
+                <div class="data-card chart-card">
+                    <h2 class="card-title"><i class="fas fa-chart-bar"></i> Desempenho por Matéria</h2>
+                    <canvas id="barChart" class="chart-canvas"></canvas>
+                </div>
+            </div>
+
+            <!-- DESEMPENHO POR MATÉRIA -->
+            <div class="data-card">
+                <h2 class="card-title"><i class="fas fa-book"></i> Desempenho Detalhado por Matéria</h2>
+                <div class="subjects-grid">
+                    
+                    <!-- MATÉRIA 1: Matemática -->
+                    <div class="subject-card">
+                        <div class="subject-header">
+                            <h3 class="subject-name">Matemática</h3>
+                            <span class="subject-score">92%</span>
+                        </div>
+                        <div class="subject-bar">
+                            <div class="subject-progress" style="width: 92%;"></div>
+                        </div>
+                        <div class="subject-meta">
+                            <span class="subject-evolution"><i class="fas fa-arrow-up"></i> +8%</span>
+                            <span class="subject-status excellent">Excelente</span>
+                        </div>
+                    </div>
+
+                    <!-- MATÉRIA 2: Português -->
+                    <div class="subject-card">
+                        <div class="subject-header">
+                            <h3 class="subject-name">Português</h3>
+                            <span class="subject-score">78%</span>
+                        </div>
+                        <div class="subject-bar">
+                            <div class="subject-progress" style="width: 78%;"></div>
+                        </div>
+                        <div class="subject-meta">
+                            <span class="subject-evolution"><i class="fas fa-arrow-up"></i> +5%</span>
+                            <span class="subject-status good">Bom</span>
+                        </div>
+                    </div>
+
+                    <!-- MATÉRIA 3: Inglês -->
+                    <div class="subject-card">
+                        <div class="subject-header">
+                            <h3 class="subject-name">Inglês</h3>
+                            <span class="subject-score">85%</span>
+                        </div>
+                        <div class="subject-bar">
+                            <div class="subject-progress" style="width: 85%;"></div>
+                        </div>
+                        <div class="subject-meta">
+                            <span class="subject-evolution"><i class="fas fa-arrow-up"></i> +10%</span>
+                            <span class="subject-status excellent">Excelente</span>
+                        </div>
+                    </div>
+
+                    <!-- MATÉRIA 4: História -->
+                    <div class="subject-card">
+                        <div class="subject-header">
+                            <h3 class="subject-name">História</h3>
+                            <span class="subject-score">72%</span>
+                        </div>
+                        <div class="subject-bar">
+                            <div class="subject-progress" style="width: 72%;"></div>
+                        </div>
+                        <div class="subject-meta">
+                            <span class="subject-evolution"><i class="fas fa-arrow-down"></i> -2%</span>
+                            <span class="subject-status good">Bom</span>
+                        </div>
+                    </div>
+
+                    <!-- MATÉRIA 5: Física -->
+                    <div class="subject-card">
+                        <div class="subject-header">
+                            <h3 class="subject-name">Física</h3>
+                            <span class="subject-score">88%</span>
+                        </div>
+                        <div class="subject-bar">
+                            <div class="subject-progress" style="width: 88%;"></div>
+                        </div>
+                        <div class="subject-meta">
+                            <span class="subject-evolution"><i class="fas fa-arrow-up"></i> +15%</span>
+                            <span class="subject-status excellent">Excelente</span>
+                        </div>
+                    </div>
+
+                    <!-- MATÉRIA 6: Química -->
+                    <div class="subject-card">
+                        <div class="subject-header">
+                            <h3 class="subject-name">Química</h3>
+                            <span class="subject-score">68%</span>
+                        </div>
+                        <div class="subject-bar">
+                            <div class="subject-progress" style="width: 68%;"></div>
+                        </div>
+                        <div class="subject-meta">
+                            <span class="subject-evolution"><i class="fas fa-arrow-down"></i> -3%</span>
+                            <span class="subject-status average">Médio</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- METAS E RECOMENDAÇÕES -->
+            <div class="data-card">
+                <h2 class="card-title"><i class="fas fa-target"></i> Metas e Recomendações</h2>
+                <div class="goals-grid">
+                    
+                    <!-- META 1: Prioridade Alta -->
+                    <div class="goal-card high-priority">
+                        <div class="goal-header">
+                            <h3 class="goal-title">Melhorar Química</h3>
+                            <span class="priority-badge high"><i class="fas fa-exclamation-circle"></i> Alta</span>
+                        </div>
+                        <p class="goal-description">Sua nota em Química caiu 3% este mês. Recomendamos revisar os conceitos de estequiometria.</p>
+                        <button class="btn-view-plan">Ver Plano <i class="fas fa-arrow-right"></i></button>
+                    </div>
+
+                    <!-- META 2: Prioridade Média -->
+                    <div class="goal-card medium-priority">
+                        <div class="goal-header">
+                            <h3 class="goal-title">Aprofundar em Português</h3>
+                            <span class="priority-badge medium"><i class="fas fa-info-circle"></i> Média</span>
+                        </div>
+                        <p class="goal-description">Você está indo bem, mas pode melhorar em redação. Sugerimos mais prática com textos argumentativos.</p>
+                        <button class="btn-view-plan">Ver Plano <i class="fas fa-arrow-right"></i></button>
+                    </div>
+
+                    <!-- META 3: Prioridade Baixa -->
+                    <div class="goal-card low-priority">
+                        <div class="goal-header">
+                            <h3 class="goal-title">Manter Excelência em Física</h3>
+                            <span class="priority-badge low"><i class="fas fa-check-circle"></i> Baixa</span>
+                        </div>
+                        <p class="goal-description">Você está excelente em Física! Continue praticando para manter seu desempenho no topo.</p>
+                        <button class="btn-view-plan">Ver Plano <i class="fas fa-arrow-right"></i></button>
+                    </div>
+
+                </div>
+            </div>
+
+        </main>
+    </section>
+    
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/desepenho.js"></script>
+    <script src="js/themes.js"></script>
+
+</body>
+</html>

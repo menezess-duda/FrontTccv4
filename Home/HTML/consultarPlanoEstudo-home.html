@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EstudeX | Plano de Estudo</title>
+    
+    <!-- Links para seus arquivos CSS e bibliotecas externas -->
+    <link rel="stylesheet" href="../css/consultarPlanoEstudo-home.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+    <section class="user-dashboard">
+        <!-- SIDEBAR (Menu Lateral ) -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <i class="fas fa-bars menu-icon" id="menu-toggle"></i>
+                <span class="logo-text">EstudeX</span>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <ul>
+                    <!-- Itens de menu existentes -->
+                    <li><a href="home-Estudex.html" class="nav-item"><i class="fas fa-home"></i> <span>Home</span></a></li>
+                    <li><a href="perfil-Estudex.html" class="nav-item"><i class="fas fa-user"></i> <span>Perfil</span></a></li>
+                    <!-- NOVO ITEM DE MENU (marcado como ativo) -->
+                   
+                    <li><a href="duvidas-Estudex.html" class="nav-item"><i class="fas fa-question-circle"></i> <span>Dúvidas</span></a></li>
+                    <li><a href="atividades-Estudex.html" class="nav-item"><i class="fas fa-tasks"></i> <span>Atividades</span></a></li>
+                    <li><a href="desempenho-Estudex.html" class="nav-item"><i class="fas fa-chart-line"></i> <span>Desempenho</span></a></li>
+                    <li><a href="enem.html" class="nav-item"><i class="fas fa-book"></i> <span>Enem</span></a></li>
+                    <li><a href="contrate.html" class="nav-item"><i class="fas fa-clipboard-list"></i> <span>Contrate-nos</span></a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="configuracoes-Estudex.html" class="nav-item"><i class="fas fa-cog"></i> <span>Configurações</span></a>
+            </div>
+        </div>
+
+        <!-- CONTEÚDO PRINCIPAL -->
+        <main class="dashboard-content">
+            <!-- CABEÇALHO -->
+            <div class="header-top">
+                <h1 class="page-title"><i class="fas fa-book-open"></i> Plano de Estudo</h1>
+                <div class="notifications-icon">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-badge">3</span>
+                </div>
+            </div>
+
+            <!-- CARD: VISÃO GERAL DO PLANO -->
+            <div class="progress-summary-card">
+                <h3 class="card-title-light"><i class="fas fa-bullseye"></i> Visão Geral do Plano</h3>
+                <div class="progress-indicators">
+                    <div class="indicator">
+                        <div class="indicator-circle"><span class="indicator-value">75%</span></div>
+                        <span class="indicator-label">Conclusão da Semana</span>
+                    </div>
+                    <div class="indicator">
+                        <div class="indicator-circle"><span class="indicator-value">4/5</span></div>
+                        <span class="indicator-label">Metas Diárias Batidas</span>
+                    </div>
+                    <div class="indicator">
+                        <div class="indicator-circle"><span class="indicator-value">18h</span></div>
+                        <span class="indicator-label">Total de Horas</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD: AGENDA SEMANAL -->
+            <div class="weekly-schedule-card">
+                <h3 class="card-title-light"><i class="fas fa-calendar-week"></i> Agenda Semanal</h3>
+                <table class="schedule-table">
+                    <thead>
+                        <tr>
+                            <th>Segunda</th>
+                            <th>Terça</th>
+                            <th>Quarta</th>
+                            <th>Quinta</th>
+                            <th>Sexta</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <span class="subject">Matemática</span>
+                                <span class="time">8:00 - 10:00</span>
+                            </td>
+                            <td>
+                                <span class="subject">Português</span>
+                                <span class="time">8:00 - 10:00</span>
+                            </td>
+                            <td>
+                                <span class="subject">Biologia</span>
+                                <span class="time">8:00 - 10:00</span>
+                            </td>
+                            <td>
+                                <span class="subject">Física</span>
+                                <span class="time">8:00 - 10:00</span>
+                            </td>
+                            <td>
+                                <span class="subject">Redação</span>
+                                <span class="time">8:00 - 10:00</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="subject">História</span>
+                                <span class="time">10:30 - 12:00</span>
+                            </td>
+                            <td>
+                                <span class="subject">Geografia</span>
+                                <span class="time">10:30 - 12:00</span>
+                            </td>
+                            <td>
+                                <span class="subject">Química</span>
+                                <span class="time">10:30 - 12:00</span>
+                            </td>
+                            <td>
+                                <span class="subject">Revisão</span>
+                                <span class="time">10:30 - 12:00</span>
+                            </td>
+                            <td>
+                                <span class="subject">Exercícios</span>
+                                <span class="time">10:30 - 12:00</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- GRID: MATÉRIAS EM FOCO + PRÓXIMAS AVALIAÇÕES -->
+            <div class="home-grid">
+                <div class="next-actions-card">
+                    <h3 class="card-title-light"><i class="fas fa-star"></i> Matérias em Foco</h3>
+                    <ul class="actions-list">
+                        <li class="action-item"><i class="fas fa-calculator"></i><span>Análise Combinatória</span></li>
+                        <li class="action-item"><i class="fas fa-atom"></i><span>Química Orgânica</span></li>
+                        <li class="action-item"><i class="fas fa-landmark"></i><span>História do Brasil</span></li>
+                    </ul>
+                </div>
+                <div class="recent-activities-card">
+                    <h3 class="card-title-light"><i class="fas fa-file-signature"></i> Próximas Avaliações</h3>
+                    <div class="activity-summary">
+                        <div class="activity-item pending">
+                            <span class="activity-label">Simulado ENEM</span>
+                            <span class="activity-name">Todas as Matérias</span>
+                            <span class="activity-date">Prazo: 29 de Nov</span>
+                        </div>
+                        <div class="activity-item pending">
+                            <span class="activity-label">Prova de Física</span>
+                            <span class="activity-name">Capítulos 5 e 6</span>
+                            <span class="activity-date">Prazo: 02 de Dez</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </section>
+    
+    <!-- Scripts -->
+    <script src="../js/consultarPlanoEstudo-home.js"></script>
+    <script src="js/themes.js"></script>
+    
+</body>
+</html>

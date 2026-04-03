@@ -1,0 +1,523 @@
+:root {
+    --primary-color: #BB86FC; 
+    --secondary-color: #a21fa2; 
+    --accent-color: #FF3D00; /* Neon Orange for alerts/highlights */
+    --bg-dark: #121212; /* Fundo principal escuro */
+    --bg-card: #1E1E1E; /* Fundo dos cards */
+    --text-light: #E0E0E0; /* Texto principal claro */
+    --text-muted: #9E9E9E; /* Texto secundário */
+    --border-color: #bb86fc33; /* Borda sutil neon roxo */
+    --shadow-color: rgba(0, 0, 0, 0.5);
+    --font-futuristic: 'Orbitron', sans-serif;
+    --font-main: 'Poppins', sans-serif;
+    --shadow-neon: 0 0 10px var(--primary-color);
+    --border-radius: 15px;
+    --sidebar-width: 250px;
+}
+
+/* Estilos Globais */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    line-height: 1.6;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--secondary-color);
+}
+
+h1, h2, h3 {
+    color: var(--text-light);
+    font-family: var(--font-main);
+}
+
+/* Layout Principal (Barra Lateral Fixa) */
+.app-layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Cards Base */
+.card {
+    background-color: var(--bg-card);
+    border-radius: var(--border-radius);
+    padding: 30px;
+    box-shadow: 0 4px 15px var(--shadow-color);
+    border: 1px solid var(--border-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.5s;
+    opacity: 0; /* Para animação de fade-in */
+}
+
+.card:hover {
+    border-color: var(--primary-color);
+    box-shadow: var(--shadow-neon), 0 4px 15px var(--shadow-color);
+}
+
+/* 1. Sidebar Fixa */
+.sidebar {
+  width: 250px;
+  background-color: #0D0D0D;
+  padding: 20px 0;
+  
+  position: fixed;   /* 🔥 ISSO AQUI resolve */
+  top: 0;
+  left: 0;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  box-shadow: 5px 0 20px var(--shadow-color);
+  z-index: 1000;
+}
+
+.dashboard-content {
+  margin-left: 250px;
+}
+
+.sidebar.collapsed {
+    width: 80px;
+}
+
+.sidebar.collapsed .logo-text,
+.sidebar.collapsed .nav-item span,
+.sidebar.collapsed .sidebar-footer span {
+    display: none;
+}
+
+.sidebar.collapsed .nav-item {
+    justify-content: center;
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    margin-bottom: 30px;
+    height: 40px;
+}
+
+.logo-text {
+    font-family: var(--font-futuristic);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-left: 10px;
+    transition: opacity 0.3s ease;
+}
+
+.menu-icon {
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--secondary-color);
+    transition: color 0.3s ease;
+}
+
+.menu-icon:hover {
+    color: var(--primary-color);
+}
+
+.sidebar-nav {
+  flex: 1;
+  display: flex;
+  align-items: center;     /* 🔥 CENTRALIZA NO MEIO */
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    text-decoration: none;
+    color: var(--text-light);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-item i {
+    font-size: 1.2rem;
+    margin-right: 15px;
+    color: var(--secondary-color);
+}
+
+.nav-item:hover {
+    background-color: #1A1A1A;
+    color: var(--primary-color);
+}
+
+.nav-item.active {
+    background-color: var(--primary-color);
+    color: var(--bg-dark);
+    border-left: 5px solid var(--secondary-color);
+}
+
+.nav-item.active i {
+    color: var(--bg-dark);
+}
+
+.sidebar-footer {
+    padding: 20px 0;
+    border-top: 1px solid var(--border-color);
+}
+/* Conteúdo Principal */
+.main-content-perfil {
+    margin-left: var(--sidebar-width);
+    flex-grow: 1;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.content-header {
+    background-color: var(--bg-dark);
+    padding: 15px 30px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+.user-status-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.user-status-header i {
+    font-size: 1.2rem;
+    color: var(--text-light);
+    cursor: pointer;
+}
+
+.shadow-mode-toggle {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    padding: 8px 15px;
+    border: 1px solid var(--primary-color);
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.shadow-mode-toggle:hover {
+    background-color: var(--primary-color);
+    color: var(--bg-dark);
+    box-shadow: var(--shadow-neon);
+}
+
+/* 2. Header do Perfil */
+.user-profile-header {
+    background-color: var(--bg-card);
+    padding: 40px 30px;
+    margin-bottom: 30px;
+    border-radius: 0;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    box-shadow: none;
+}
+
+.user-avatar-area {
+    display: flex;
+    align-items: center;
+}
+
+.avatar-profile {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 4px solid var(--primary-color);
+    box-shadow: var(--shadow-neon);
+    margin-right: 20px;
+    background-color: var(--text-muted);
+}
+
+.user-details h2 {
+    font-size: 2rem;
+    margin-bottom: 5px;
+    color: var(--primary-color);
+    text-shadow: 0 0 5px rgba(187, 134, 252, 0.5);
+}
+
+.user-details p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.divider {
+    height: 2px;
+    background-color: var(--primary-color);
+    box-shadow: 0 0 8px var(--primary-color);
+    margin-top: 20px;
+    width: 100%;
+}
+
+/* Seções de Conteúdo (Cards) */
+.profile-grid {
+    padding: 0 30px 30px 30px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 30px;
+}
+
+.about-me-section {
+    grid-column: 1 / 2;
+}
+
+.achievements-section {
+    grid-column: 2 / 3;
+}
+
+.ranking-section {
+    grid-column: 1 / 2;
+}
+
+.stats-section {
+    grid-column: 2 / 3;
+}
+
+h3 {
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    color: var(--primary-color);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+h3 i {
+    margin-right: 10px;
+    color: var(--primary-color);
+}
+
+/* 3. Seção "Sobre Mim" */
+.about-me-section h3 i {
+    font-size: 0.9rem;
+    margin-left: 10px;
+    color: var(--text-muted);
+    cursor: pointer;
+}
+
+.tags {
+    margin-top: 15px;
+}
+
+.tag {
+    display: inline-block;
+    background-color: rgba(187, 134, 252, 0.1);
+    color: var(--primary-color);
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    border: 1px solid rgba(187, 134, 252, 0.3);
+}
+
+/* 4. Selos e Conquistas */
+.seals-grid {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 15px;
+}
+
+.seals-grid i {
+    font-size: 2.5rem;
+    color: var(--text-muted);
+    transition: color 0.3s;
+}
+
+.seals-grid i:hover {
+    color: var(--primary-color);
+    text-shadow: 0 0 10px var(--primary-color);
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 8px 15px;
+    background-color: var(--primary-color);
+    color: var(--bg-dark);
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+    margin-top: 10px;
+}
+
+.cta-button:hover {
+    background-color: var(--secondary-color);
+    box-shadow: var(--shadow-neon);
+}
+
+/* 5. Ranking Global */
+.ranking-section p {
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
+.ranking-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-shadow: 0 0 5px rgba(187, 134, 252, 0.5);
+}
+
+.improvement {
+    color: var(--accent-color); /* Laranja Neon para destaque */
+    font-weight: 600;
+}
+
+/* Shadow Mode Ativo (Exemplo de mudança visual) */
+body.shadow-mode-active {
+    filter: grayscale(100%) contrast(150%);
+}
+
+/* =================================================================
+   RESPONSIVIDADE
+   ================================================================= */
+
+@media (max-width: 1024px) {
+    /* Sidebar */
+    .sidebar-nav {
+        width: 60px;
+        min-width: 60px;
+    }
+
+    .logo-area {
+        font-size: 0;
+        padding: 15px 0 10px 0;
+    }
+
+    .logo-area img {
+        display: none;
+    }
+
+    .logo-area::before {
+        content: "EX";
+        font-size: 1.2rem;
+        color: var(--primary-color);
+        font-weight: bold;
+    }
+
+    .main-menu {
+        padding: 0;
+    }
+
+    .nav-link {
+        padding: 15px 0;
+        justify-content: center;
+    }
+
+    .nav-link:not(.active) {
+        font-size: 0;
+    }
+
+    .nav-link i {
+        margin-right: 0;
+    }
+
+    /* Conteúdo Principal */
+    .main-content-perfil {
+        margin-left: 60px;
+    }
+
+    .profile-grid {
+        grid-template-columns: 1fr;
+        padding: 0 20px 20px 20px;
+    }
+
+    .about-me-section, .achievements-section, .ranking-section, .stats-section {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Sidebar (Transforma em barra superior) */
+    .sidebar-nav {
+        width: 100%;
+        height: auto;
+        position: relative;
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .logo-area {
+        display: none;
+    }
+
+    .main-menu {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        padding: 10px 0;
+    }
+
+    .nav-link {
+        padding: 10px 5px;
+        flex-direction: column;
+        border-left: none;
+        border-bottom: 3px solid transparent;
+        font-size: 0.7rem;
+    }
+
+    .nav-link:not(.active) {
+        font-size: 0.7rem;
+    }
+
+    .nav-link i {
+        margin-right: 0;
+        margin-bottom: 5px;
+    }
+
+    .nav-link.active {
+        border-left: none;
+        border-bottom: 3px solid var(--primary-color);
+        background-color: transparent;
+        box-shadow: none;
+    }
+
+    /* Conteúdo Principal */
+    .main-content-perfil {
+        margin-left: 0;
+    }
+
+    .content-header {
+        padding: 10px 20px;
+    }
+
+    .user-profile-header {
+        padding: 20px;
+    }
+
+    .user-avatar-area {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .avatar-profile {
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+
+    .user-details h2 {
+        font-size: 1.5rem;
+    }
+}

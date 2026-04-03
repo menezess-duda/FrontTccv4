@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EstudeX | Minhas Atividades</title>
+    <link rel="stylesheet" href="css/style-atividades.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../CSS/atividade.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="../CSS/themes.css">
+
+</head>
+<body>
+
+    <section class="user-dashboard">
+        <!-- SIDEBAR (Menu Lateral) -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <i class="fas fa-bars menu-icon" id="menu-toggle"></i>
+                <span class="logo-text">EstudeX</span>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="../../../Home/HTML/home-Estudex.html" class="nav-item"><i class="fas fa-home"></i> <span>Home</span></a></li>
+                    <li><a href="../../perfil/HTML/perfil-Estudex.html" class="nav-item"><i class="fas fa-user"></i> <span>Perfil</span></a></li>
+                    <li><a href="../../duvidas/HTML/duvidas-Estudex.html" class="nav-item"><i class="fas fa-question-circle"></i> <span>Dúvidas</span></a></li>
+                    <li><a href="../../atividade/HTML/atividades-Estudex.html" class="nav-item"><i class="fas fa-tasks"></i> <span>Atividades</span></a></li>
+                    <li><a href="../../desempenho/HTML/desempenho-Estudex.html" class="nav-item"><i class="fas fa-chart-line"></i> <span>Desempenho</span></a></li>
+                    <li><a href="../../enem/HTML/enem.html" class="nav-item"><i class="fas fa-book"></i> <span>Enem</span></a></li>                  
+            </nav>
+        </div>
+
+        <!-- CONTEÚDO PRINCIPAL -->
+        <main class="dashboard-content">
+            <h1 class="page-title"><i class="fas fa-tasks"></i> Minhas Atividades</h1>
+
+            <!-- CARD DE PROGRESSO GERAL -->
+            <div class="data-card progress-card">
+                <h2 class="card-title"><i class="fas fa-chart-pie"></i> Progresso Geral</h2>
+                <div class="progress-container">
+                    <div class="progress-circle">
+                        <svg viewBox="0 0 100 100" class="progress-svg">
+                            <circle cx="50" cy="50" r="45" class="progress-bg"></circle>
+                            <circle cx="50" cy="50" r="45" class="progress-fill" style="--progress: 68;"></circle>
+                        </svg>
+                        <div class="progress-text">
+                            <span class="progress-value">68%</span>
+                            <span class="progress-label">Completo</span>
+                        </div>
+                    </div>
+                    <div class="progress-stats">
+                        <div class="stat">
+                            <span class="stat-number">34</span>
+                            <span class="stat-label">Atividades Concluídas</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">16</span>
+                            <span class="stat-label">Atividades Pendentes</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">92%</span>
+                            <span class="stat-label">Taxa de Acerto</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FILTROS -->
+            <div class="filters-container">
+                <button class="filter-btn active" data-filter="all"><i class="fas fa-list"></i> Atividades</button>
+                <button class="filter-btn" data-filter="completed"><i class="fas fa-check-circle"></i> Concluídas</button>
+            </div>
+
+           
+        </main>
+    </section>
+    
+    
+    <script src="../JS/atividades.js"></script>
+    <script src="../JS/themes.js"></script>
+
+
+</body>
+</html>

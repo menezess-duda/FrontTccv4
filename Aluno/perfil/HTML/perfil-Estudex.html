@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EstudeX - Perfil do Usuário</title>
+    <link rel="stylesheet" href="../../perfil/CSS/perfil.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../CSS/themes.css">
+
+</head>
+
+<body>
+
+    <div class="app-layout">
+
+        <!--  Logo -->
+
+
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <i class="fas fa-bars menu-icon" id="menu-toggle"></i>
+                <span class="logo-text">EstudeX</span>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="../../../Home/HTML/home-Estudex.html" class="nav-item"><i class="fas fa-home"></i>
+                            <span>Home</span></a></li>
+                    <li><a href="../../perfil/HTML/perfil-Estudex.html" class="nav-item"><i class="fas fa-user"></i>
+                            <span>Perfil</span></a></li>
+                    <li><a href="../../duvidas/HTML/duvidas-Estudex.html" class="nav-item"><i
+                                class="fas fa-question-circle"></i> <span>Dúvidas</span></a></li>
+                    <li><a href="../../atividade/HTML/atividades-Estudex.html" class="nav-item"><i
+                                class="fas fa-tasks"></i> <span>Atividades</span></a></li>
+                    <li><a href="../../desempenho/HTML/desempenho-Estudex.html" class="nav-item"><i
+                                class="fas fa-chart-line"></i> <span>Desempenho</span></a></li>
+                    <li><a href="../../enem/HTML/enem.html" class="nav-item"><i class="fas fa-book"></i>
+                            <span>Enem</span></a></li>
+                </ul>
+            </nav>
+        </div>
+
+
+        <!-- Conteúdo Principal -->
+        <main class="main-content-perfil">
+
+
+            <!-- 2. Header do Perfil -->
+            <section class="user-profile-header card">
+                <div class="user-avatar-area">
+                    <img src="avatar.png" alt="Avatar" class="avatar-profile">
+                    <div class="user-details">
+                        <h2>Nome do Usuário</h2>
+                        <p class="institution">Instituição de Ensino</p>
+                        <p class="level">Nível de Acesso: M2 (70%)</p>
+                    </div>
+                </div>
+                <div class="divider"></div>
+            </section>
+
+            <div class="profile-grid">
+                <!-- 3. Seção "Sobre Mim" -->
+                <section class="about-me-section card">
+                    <h3>SOBRE MIM <i class="fas fa-pencil-alt"></i></h3>
+                    <p>Aqui o estudante fará a bio dele. Uma breve descrição sobre seus objetivos, o que estuda e suas
+                        principais conquistas na plataforma. Otimizado para preencher melhor o espaço.</p>
+                    <div class="tags">
+                        <span class="tag">#Matemática</span>
+                        <span class="tag">#Vestibular</span>
+                        <span class="tag">#Foco</span>
+                        <span class="tag">#Programação</span>
+                        <span class="tag">#Ciências</span>
+                    </div>
+                </section>
+
+                <!-- 4. Selos e Conquistas -->
+                <section class="achievements-section card">
+                    <h3>SELOS E CONQUISTAS</h3>
+                    <div class="seals-grid">
+                        <i class="fas fa-star gold"></i>
+                        <i class="fas fa-trophy silver"></i>
+                        <i class="fas fa-medal bronze"></i>
+                        <i class="fas fa-rocket"></i>
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <a href="#" class="cta-button view-all">Ver Todas</a>
+                </section>
+
+                <!-- 5. Ranking Global -->
+                <section class="ranking-section card">
+                    <h3><i class="fas fa-sort-amount-up"></i> RANKING GLOBAL</h3>
+                    <p>Ranking Atual: <span class="ranking-value">#54</span></p>
+                    <p>Melhoria: <span class="improvement">↑ 6 posições</span></p>
+                    <a href="#" class="cta-button view-all">Ver Ranking Completo</a>
+                </section>
+
+                <!-- Estatísticas Rápidas (Adicionado para preencher o layout) -->
+                <section class="stats-section card">
+                    <h3><i class="fas fa-chart-bar"></i> ESTATÍSTICAS RÁPIDAS</h3>
+                    <p>120 Atividades Concluídas</p>
+                    <p>85% Taxa de Acertos</p>
+                    <p>35 Horas de Estudo no Mês</p>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="../JS/perfil.js"></script>
+    <script src="../JS/themes.js"></script>
+</body>
+
+</html>
